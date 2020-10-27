@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    nutritionix_app_id: '%env(NUTRITIONIX_APP_ID)%'
+    nutritionix_app_key: '%env(NUTRITIONIX_APP_KEY)%'
 
 services:
     # default configuration for services in *this* file
