@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Infrastructure\Entity;
 
-use App\Repository\FoodRepository;
+use App\Infrastructure\Repository\FoodRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
