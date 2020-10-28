@@ -2,18 +2,18 @@
 
 namespace App\Infrastructure\Controller;
 
-use App\Infrastructure\Entity\Food;
+use App\Application\Food\FoodCreator;
+use App\Domain\Food\Food;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 class FoodController extends AbstractController
 {
-    private $client;
+    private FoodCreator $foodCreator;
 
-    public function __construct(HttpClientInterface $client)
+    public function __construct(FoodCreator $foodCreator)
     {
-        $this->client = $client;
+        $this->foodCreator = $foodCreator;
     }
 
     /**
@@ -21,31 +21,11 @@ class FoodController extends AbstractController
      */
     public function createFood()
     {
-        $response = $this->client->request(
-            'POST',
-            'https://trackapi.nutritionix.com/v2/natural/nutrients', [
-                'json' => [
-                    "query" => "100g of ham"
-                ],
-                'headers' => [
-                    'x-app-id' => $this->getParameter('nutritionix_app_id'),
-                    'x-app-key' => $this->getParameter('nutritionix_app_key'),
-                    'x-remote-user-id' => 0
-                ]
-        ]);
 
-        $content = $response->toArray();
-        $foodInfo = $content['foods'][0];
+        //TODO use Uuid generator for ID
 
-        $food = new Food('Jamón');
-        $food->setCalories($foodInfo['nf_calories'])
-            ->setFats($foodInfo['nf_total_fat'])
-            ->setCarbohydrates($foodInfo['nf_total_carbohydrate'])
-            ->setFiber($foodInfo['nf_dietary_fiber'])
-            ->setSugars($foodInfo['nf_sugars'])
-            ->setProtein($foodInfo['nf_protein'])
-            ->setImage($foodInfo['photo']['highres']);
+        $this->foodCreator->create(new Food(uniqid(), 'Naranja'));
 
-        return $this->json($food);
+        return $this->json([]);
     }
 }

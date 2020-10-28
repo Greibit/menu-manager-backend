@@ -36,3 +36,9 @@ services:
         arguments:
             $appId: '%env(NUTRITIONIX_APP_ID)%'
             $appKey: '%env(NUTRITIONIX_APP_KEY)%'
+
+    # APPLICATION SERVICES
+    App\Application\Food\FoodCreator:
+        arguments:
+            $foodRepository: '@App\Infrastructure\Repository\DoctrineFoodRepository'
+            $nutritionalInformationProvider: '@App\Infrastructure\Provider\NutritionixNutritionalInformationProvider'
