@@ -2,11 +2,11 @@
 
 namespace App\Infrastructure\Entity;
 
-use App\Infrastructure\Repository\FoodRepository;
+use App\Infrastructure\Repository\DoctrineFoodRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FoodRepository::class)
+ * @ORM\Entity(repositoryClass=DoctrineFoodRepository::class)
  */
 class Food
 {
@@ -53,7 +53,7 @@ class Food
     private $fiber = 0;
 
     /**
-     * @ORM\Column(type="string", options={"default" : null})
+     * @ORM\Column(type="string", nullable=true)
      */
     private $image;
 
