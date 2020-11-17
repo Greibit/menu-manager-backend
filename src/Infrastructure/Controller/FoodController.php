@@ -24,16 +24,11 @@ class FoodController extends AbstractController
     }
 
     /**
-     * @Route("/food", name="food")
+     * @Route("/food/{id}", name="create_food", methods={"POST"})
      */
-    public function createFood()
+    public function createFood(string $id, Request $request)
     {
-
-        //TODO use Uuid generator for ID
-
-        $this->foodCreator->create(new Food(uniqid(), 'Naranja'));
-
-        return $this->json([]);
+        $this->foodCreator->create(new Food($id, $request->request->get('name')));
     }
 
     /**
