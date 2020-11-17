@@ -42,3 +42,7 @@ services:
         arguments:
             $foodRepository: '@App\Infrastructure\Repository\DoctrineFoodRepository'
             $nutritionalInformationProvider: '@App\Infrastructure\Provider\NutritionixNutritionalInformationProvider'
+
+    App\Application\Food\FoodFinder:
+        arguments:
+            $foodRepository: '@App\Infrastructure\Repository\DoctrineFoodRepository'

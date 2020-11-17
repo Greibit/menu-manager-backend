@@ -4,6 +4,7 @@ namespace App\Infrastructure\Repository;
 
 use App\Domain\Food\Food;
 use App\Domain\Food\FoodRepository;
+use App\Domain\Food\NutritionalInformation;
 use App\Infrastructure\Entity\Food as FoodEntity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -31,5 +32,28 @@ class DoctrineFoodRepository extends ServiceEntityRepository implements FoodRepo
         $this->_em->flush();
     }
 
+    public function search(string $foodId): ?Food
+    {
+        /** @var FoodEntity $foodEntity */
+        $foodEntity = $this->find($foodId);
+
+        $food = new Food(
+            $foodEntity->getId(),
+            $foodEntity->getName()
+        );
+
+        $nutritionalInformation = new NutritionalInformation(
+            $foodEntity->getCalories(),
+            $foodEntity->getCarbohydrates(),
+            $foodEntity->getProtein(),
+            $foodEntity->getFats(),
+            $foodEntity->getFiber(),
+            $foodEntity->getSugars()
+        );
+
+        $food->setNutritionalInformation($nutritionalInformation);
+
+        return $food;
+    }
 
 }
