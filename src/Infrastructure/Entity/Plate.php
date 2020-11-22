@@ -22,10 +22,16 @@ class Plate
      */
     private $name;
 
-    public function __construct(string $id, string $name)
+    /**
+     * @ORM\OneToMany(targetEntity="PlateFood", mappedBy="plate", fetch="EXTRA_LAZY")
+     */
+    private $foods;
+
+    public function __construct(string $id, string $name, array $foods = [])
     {
         $this->id = $id;
         $this->name = $name;
+        $this->foods = $foods;
     }
 
     public function getId(): ?int
@@ -37,6 +43,12 @@ class Plate
     {
         return $this->name;
     }
+
+    public function getFoods(): array
+    {
+        return $this->foods;
+    }
+
 
 
 }
