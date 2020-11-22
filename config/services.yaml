@@ -46,3 +46,7 @@ services:
     App\Application\Food\FoodFinder:
         arguments:
             $foodRepository: '@App\Infrastructure\Repository\DoctrineFoodRepository'
+
+    App\Application\Plate\PlateCreator:
+        arguments:
+            $plateRepository: '@App\Infrastructure\Repository\DoctrinePlateRepository'
