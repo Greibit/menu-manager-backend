@@ -29,7 +29,7 @@ class PlateFood
     private $food;
 
     /**
-     * @ORM\Column(type="number")
+     * @ORM\Column(type="integer")
      */
     private $grams;
 
