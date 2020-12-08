@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: greibit-menu-manager-mysql
+    image: mysql:8.0
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    command: ["--default-authentication-plugin=mysql_native_password"]
+
+  menu_manager_api:
+    container_name: greibit-menu-manager-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - .:/app:delegated
+    command: symfony serve --dir=public --port=8000 --force-php-discovery
