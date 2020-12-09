@@ -22,15 +22,17 @@ class FoodController extends AbstractController
     /**
      * @Route("/food/{id}", name="create_food", methods={"POST"})
      */
-    public function createFood(string $id, Request $request)
+    public function createFood(string $id, Request $request): JsonResponse
     {
         $this->foodCreator->create(new Food($id, $request->request->get('name')));
+
+        return $this->json([]);
     }
 
     /**
      * @Route("/food/{id}", name="find_food", methods={"GET"})
      */
-    public function findFood(string $id)
+    public function findFood(string $id): JsonResponse
     {
         return $this->json($this->foodFinder->find($id));
     }
