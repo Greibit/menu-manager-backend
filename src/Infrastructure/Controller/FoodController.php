@@ -6,21 +6,17 @@ use App\Application\Food\FoodCreator;
 use App\Application\Food\FoodFinder;
 use App\Domain\Food\Food;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class FoodController extends AbstractController
 {
-    private FoodCreator $foodCreator;
-    private FoodFinder $foodFinder;
-
     public function __construct(
-        FoodCreator $foodCreator,
-        FoodFinder $foodFinder
+        private FoodCreator $foodCreator,
+        private FoodFinder $foodFinder
     )
     {
-        $this->foodCreator = $foodCreator;
-        $this->foodFinder = $foodFinder;
     }
 
     /**

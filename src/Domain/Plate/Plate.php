@@ -6,14 +6,11 @@ namespace App\Domain\Plate;
 
 class Plate
 {
-    private string $id;
-
-    private string $name;
-
-    public function __construct(string $id, string $name)
+    public function __construct(
+        private string $id,
+        private string $name
+    )
     {
-        $this->id = $id;
-        $this->name = $name;
     }
 
     public function id(): string

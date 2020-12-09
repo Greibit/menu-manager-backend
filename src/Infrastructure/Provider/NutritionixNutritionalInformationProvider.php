@@ -12,19 +12,12 @@ class NutritionixNutritionalInformationProvider implements NutritionalInformatio
 {
     const BASE_GRAMS = 100;
 
-    private HttpClientInterface $client;
-    private string $appId;
-    private string $appKey;
-
     public function __construct(
-        HttpClientInterface $client,
-        string $appId,
-        string $appKey
+        private HttpClientInterface $client,
+        private string $appId,
+        private string $appKey
     )
     {
-        $this->client = $client;
-        $this->appId = $appId;
-        $this->appKey = $appKey;
     }
 
     public function getByFoodName(string $foodName): NutritionalInformation
@@ -57,7 +50,7 @@ class NutritionixNutritionalInformationProvider implements NutritionalInformatio
         );
     }
 
-    private function calculateNutrientGrams($servingGrams, $nutrientQty)
+    private function calculateNutrientGrams($servingGrams, $nutrientQty): float
     {
         return (static::BASE_GRAMS / $servingGrams) * $nutrientQty;
     }

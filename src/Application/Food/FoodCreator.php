@@ -10,16 +10,11 @@ use App\Domain\Food\NutritionalInformationProvider;
 
 class FoodCreator
 {
-    private FoodRepository $foodRepository;
-    private NutritionalInformationProvider $nutritionalInformationProvider;
-
     public function __construct(
-        FoodRepository $foodRepository,
-        NutritionalInformationProvider $nutritionalInformationProvider
+        private FoodRepository $foodRepository,
+        private NutritionalInformationProvider $nutritionalInformationProvider
     )
     {
-        $this->foodRepository = $foodRepository;
-        $this->nutritionalInformationProvider = $nutritionalInformationProvider;
     }
 
     public function create(Food $food)

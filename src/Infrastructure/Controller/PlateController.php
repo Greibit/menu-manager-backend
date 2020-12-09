@@ -10,13 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class PlateController extends AbstractController
 {
-    private PlateCreator $plateCreator;
-
     public function __construct(
-        PlateCreator $plateCreator
+        private PlateCreator $plateCreator
     )
     {
-        $this->plateCreator = $plateCreator;
     }
 
     /**

@@ -1,22 +1,17 @@
 <?php
 
 
-namespace App\Domain\Plate;
+namespace App\Domain\Plate\Create;
 
 
 class CreatePlateFood
 {
-    private string $id;
-
-    private string $foodId;
-
-    private string $grams;
-
-    public function __construct(string $id, string $foodId, string $grams)
+    public function __construct(
+        private string $id,
+        private string $foodId,
+        private string $grams
+    )
     {
-        $this->id = $id;
-        $this->foodId = $foodId;
-        $this->grams = $grams;
     }
 
     public function id(): string

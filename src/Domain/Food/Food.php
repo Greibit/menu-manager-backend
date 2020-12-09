@@ -6,17 +6,15 @@ namespace App\Domain\Food;
 
 class Food
 {
-    private string $id;
-
-    private string $name;
+    public function __construct(
+        private string $id,
+        private string $name
+    )
+    {
+    }
 
     private ?NutritionalInformation $nutritionalInformation = null;
 
-    public function __construct(string $id, string $name)
-    {
-        $this->id = $id;
-        $this->name = $name;
-    }
 
     public function id(): string
     {

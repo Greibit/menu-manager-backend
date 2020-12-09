@@ -9,13 +9,10 @@ use App\Domain\Plate\PlateRepository;
 
 class PlateCreator
 {
-    private PlateRepository $plateRepository;
-
     public function __construct(
-        PlateRepository $plateRepository
+        private PlateRepository $plateRepository
     )
     {
-        $this->plateRepository = $plateRepository;
     }
 
     public function create(Plate $plate)

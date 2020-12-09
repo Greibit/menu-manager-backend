@@ -4,19 +4,19 @@
 namespace App\Application\Food;
 
 
+use App\Domain\Food\Food;
 use App\Domain\Food\FoodNotExists;
 use App\Domain\Food\FoodRepository;
 
 class FoodFinder
 {
-    private FoodRepository $foodRepository;
-
-    public function __construct(FoodRepository $foodRepository)
+    public function __construct(
+        private FoodRepository $foodRepository
+    )
     {
-        $this->foodRepository = $foodRepository;
     }
 
-    public function find(string $foodId)
+    public function find(string $foodId): Food
     {
         $food = $this->foodRepository->search($foodId);
 
