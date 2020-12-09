@@ -50,3 +50,7 @@ services:
     App\Application\Plate\PlateCreator:
         arguments:
             $plateRepository: '@App\Infrastructure\Repository\DoctrinePlateRepository'
+
+    App\Infrastructure\Listener\AddJsonBodyToRequestListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
