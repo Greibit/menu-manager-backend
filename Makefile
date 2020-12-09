@@ -64,10 +64,10 @@ ping-mysql:
 
 clean-cache:
 	@rm -rf var
-	@docker exec menu-manager-api ./bin/console cache:warmup
+	@docker exec greibit-menu-manager-api ./bin/console cache:warmup
 
 database-create:
-	@docker exec menu-manager-api ./bin/console doctrine:database:create
+	@docker exec greibit-menu-manager-api ./bin/console doctrine:database:create
 
 schema-update:
-	@docker exec menu-manager-api ./bin/console doctrine:schema:update --force
+	@docker exec greibit-menu-manager-api ./bin/console doctrine:schema:update --force
