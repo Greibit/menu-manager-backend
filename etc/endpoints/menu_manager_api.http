@@ -8,3 +8,7 @@ Content-Type: application/json
 }
 
 ###
+# Find a food
+GET localhost:8000/food/bef21eae-2717-4679-8c51-3dc44652b537
+
+###

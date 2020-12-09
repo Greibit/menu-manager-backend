@@ -18,7 +18,7 @@ class DoctrineFoodRepository extends ServiceEntityRepository implements FoodRepo
 
     public function save(Food $food): void
     {
-        $foodEntity = new FoodEntity($food->name());
+        $foodEntity = new FoodEntity($food->id(), $food->name());
 
         $nutritionalInformation = $food->nutritionalInformation();
         $foodEntity->setCalories($nutritionalInformation->calories());
@@ -36,6 +36,10 @@ class DoctrineFoodRepository extends ServiceEntityRepository implements FoodRepo
     {
         /** @var FoodEntity $foodEntity */
         $foodEntity = $this->find($foodId);
+
+        if (!$foodEntity) {
+            return null;
+        }
 
         $food = new Food(
             $foodEntity->getId(),

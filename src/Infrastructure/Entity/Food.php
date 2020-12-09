@@ -12,8 +12,7 @@ class Food
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $id;
 
@@ -57,12 +56,13 @@ class Food
      */
     private $image;
 
-    public function __construct(string $name)
+    public function __construct(string $id, string $name)
     {
+        $this->id = $id;
         $this->name = $name;
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
