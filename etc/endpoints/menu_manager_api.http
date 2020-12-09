@@ -1,0 +1,10 @@
+###
+# Create a food
+POST localhost:8000/food/{{$uuid}}
+Content-Type: application/json
+
+{
+  "name": "Manzana"
+}
+
+###
