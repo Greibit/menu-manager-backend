@@ -1,0 +1,102 @@
+###
+# Create a food
+POST localhost:8000/food/85e4f012-e4d7-4f06-849f-04dd1ab47cb0
+Content-Type: application/json
+
+{
+  "name": "Macarrones"
+}
+
+###
+# Create a food
+POST localhost:8000/food/3078ab73-83fe-4e08-965d-3328cd9adcf4
+Content-Type: application/json
+
+{
+  "name": "Mantequilla"
+}
+###
+# Create a food
+POST localhost:8000/food/1941eac7-de64-49e1-85f3-be1206d80233
+Content-Type: application/json
+
+{
+  "name": "Harina"
+}
+###
+# Create a food
+POST localhost:8000/food/35b50810-1564-4033-9bed-73f76b60de5f
+Content-Type: application/json
+
+{
+  "name": "Sal"
+}
+###
+# Create a food
+POST localhost:8000/food/4f149cfb-3223-410c-8a98-b5c245797abd
+Content-Type: application/json
+
+{
+  "name": "Pimienta Negra"
+}
+###
+# Create a food
+POST localhost:8000/food/d3ecd5b6-06f6-4fa4-9cc0-47d4f7cbfae9
+Content-Type: application/json
+
+{
+  "name": "Leche"
+}
+###
+# Create a food
+POST localhost:8000/food/bba10af2-9901-407e-b674-f64dcbc3c263
+Content-Type: application/json
+
+{
+  "name": "Queso Chedar"
+}
+
+###
+# Find a food
+GET localhost:8000/food/bef21eae-2717-4679-8c51-3dc44652b537
+
+###
+
+###
+# Create a plate
+POST localhost:8000/plate/{{$uuid}}
+Content-Type: application/json
+
+{
+  "name": "Macarrones con queso",
+  "ingredients": [
+    {
+      "grams": 220,
+      "foodId": "85e4f012-e4d7-4f06-849f-04dd1ab47cb0"
+    },
+    {
+      "grams": 57,
+      "foodId": "3078ab73-83fe-4e08-965d-3328cd9adcf4"
+    },
+    {
+      "grams": 57,
+      "foodId": "1941eac7-de64-49e1-85f3-be1206d80233"
+    },
+    {
+      "grams": 2.4,
+      "foodId": "35b50810-1564-4033-9bed-73f76b60de5f"
+    },
+    {
+      "grams": 2,
+      "foodId": "4f149cfb-3223-410c-8a98-b5c245797abd"
+    },
+    {
+      "grams": 250,
+      "foodId": "d3ecd5b6-06f6-4fa4-9cc0-47d4f7cbfae9"
+    },
+    {
+      "grams": 150,
+      "foodId": "bba10af2-9901-407e-b674-f64dcbc3c263"
+    }
+  ]
+}

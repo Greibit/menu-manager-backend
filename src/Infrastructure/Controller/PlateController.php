@@ -3,6 +3,8 @@
 namespace App\Infrastructure\Controller;
 
 use App\Application\Plate\PlateCreator;
+use App\Domain\Plate\Ingredient;
+use App\Domain\Plate\Ingredients;
 use App\Domain\Plate\Plate;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,7 +24,18 @@ class PlateController extends AbstractController
      */
     public function createPlate(string $id, Request $request): JsonResponse
     {
-        $this->plateCreator->create(new Plate($id, $request->request->get('name')));
+        $ingredientsArray = [];
+        foreach ($request->request->get('ingredients') as $ingredient) {
+            $ingredientsArray[] = new Ingredient($ingredient['grams'], $ingredient['foodId']);
+        }
+
+        $plate = new Plate(
+            $id,
+            $request->request->get('name'),
+            new Ingredients($ingredientsArray),
+        );
+
+        $this->plateCreator->create($plate);
 
         return $this->json([]);
     }

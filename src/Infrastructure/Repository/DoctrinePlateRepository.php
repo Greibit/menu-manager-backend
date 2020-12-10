@@ -18,9 +18,16 @@ class DoctrinePlateRepository extends ServiceEntityRepository implements PlateRe
     public function save(Plate $plate): void
     {
         $plateEntity = new PlateEntity($plate->id(), $plate->name());
-
         $this->_em->persist($plateEntity);
         $this->_em->flush();
+
+        foreach ($plate->ingredients()->getIterator() as $ingredient) {
+            $this->_em->getConnection()->insert('ingredient', [
+                'plate_id' => $plateEntity->getId(),
+                'food_id' => $ingredient->foodId(),
+                'grams' => $ingredient->grams(),
+            ]);
+        }
     }
 
     public function search(string $plateId): ?Plate
