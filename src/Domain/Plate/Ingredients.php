@@ -11,4 +11,11 @@ class Ingredients extends Collection
     {
         return Ingredient::class;
     }
+
+    public function toPrimitives(): array
+    {
+        return array_map(function($item) {
+            return $item->toPrimitives();
+        }, $this->items());
+    }
 }

@@ -36,4 +36,13 @@ class Food
         $this->nutritionalInformation = $nutritionalInformation;
     }
 
+    public function toPrimitives()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'nutritionalInformation' => $this->nutritionalInformation?->toPrimitives(),
+        ];
+    }
+
 }

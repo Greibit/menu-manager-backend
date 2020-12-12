@@ -34,6 +34,6 @@ class FoodController extends AbstractController
      */
     public function findFood(string $id): JsonResponse
     {
-        return $this->json($this->foodFinder->find($id));
+        return $this->json($this->foodFinder->find($id)->toPrimitives());
     }
 }

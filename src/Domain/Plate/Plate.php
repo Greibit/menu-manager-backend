@@ -29,4 +29,12 @@ class Plate
         return $this->ingredients;
     }
 
+    public function toPrimitives(): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'ingredients' => $this->ingredients->toPrimitives(),
+        ];
+    }
 }

@@ -22,5 +22,11 @@ class Ingredient
         return $this->foodId;
     }
 
-
+    public function toPrimitives(): array
+    {
+        return [
+            'grams' => $this->grams,
+            'foodId' => $this->foodId
+        ];
+    }
 }

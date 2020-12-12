@@ -47,4 +47,16 @@ class NutritionalInformation
         return $this->fiber;
     }
 
+
+    public function toPrimitives()
+    {
+        return [
+            'calories' => $this->calories,
+            'carbohydrates' => $this->carbohydrates,
+            'protein' => $this->protein,
+            'fats' => $this->fats,
+            'sugars' => $this->sugars,
+            'fiber' => $this->fiber,
+        ];
+    }
 }
