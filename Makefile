@@ -25,11 +25,8 @@ composer-require-module: CMD=require $(module)
 composer-require-module: INTERACTIVE=-ti --interactive
 
 .PHONY: composer
-composer composer-install composer-update composer-require composer-require-module: composer-env-file
-	@docker run --rm $(INTERACTIVE) --volume $(current-dir):/app --user $(id -u):$(id -g) \
-		composer:2 $(CMD) \
-			--ignore-platform-reqs \
-			--no-ansi
+composer composer-install composer-update composer-require composer-require-module:
+	@docker exec greibit-menu-manager-api composer $(CMD)
 
 .PHONY: reload
 reload: composer-env-file

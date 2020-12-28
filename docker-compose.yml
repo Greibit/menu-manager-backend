@@ -5,7 +5,7 @@ services:
     container_name: greibit-menu-manager-mysql
     image: mysql:8.0
     ports:
-      - 3306:3306
+      - 3399:3306
     environment:
       - MYSQL_ROOT_PASSWORD=
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
@@ -18,8 +18,8 @@ services:
       dockerfile: Dockerfile
     restart: unless-stopped
     ports:
-      - "8000:8000"
-      - "9000:9000"
+      - "8099:8000"
+      - "9099:9000"
     volumes:
       - .:/app
     command: symfony serve --dir=public --port=8000 --force-php-discovery

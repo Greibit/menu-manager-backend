@@ -1,6 +1,6 @@
 ###
 # Create a food
-POST localhost:8000/food/{{$uuid}}
+POST 127.0.0.1:8099/food/{{$uuid}}
 Content-Type: application/json
 
 {
@@ -9,6 +9,6 @@ Content-Type: application/json
 
 ###
 # Find a food
-GET localhost:8000/food/bef21eae-2717-4679-8c51-3dc44652b537
+GET 127.0.0.1:8099/food/bef21eae-2717-4679-8c51-3dc44652b537
 
 ###
