@@ -90,6 +90,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.0"
+    },
     "laminas/laminas-code": {
         "version": "3.5.1"
     },
@@ -101,9 +104,6 @@
     },
     "nikic/php-parser": {
         "version": "v4.10.2"
-    },
-    "ocramius/proxy-manager": {
-        "version": "2.2.3"
     },
     "php": {
         "version": "7.2"
@@ -372,9 +372,6 @@
     },
     "twig/twig": {
         "version": "v3.0.5"
-    },
-    "webimpress/safe-writer": {
-        "version": "2.1.0"
     },
     "webmozart/assert": {
         "version": "1.9.1"
